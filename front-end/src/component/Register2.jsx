@@ -11,7 +11,7 @@ const Register2 = () => {
     // console.log(email);
     // console.log(password);
     try {
-       await axios.post('http://localhost:3000/register',{
+       await axios.post('https://mernstack-dnz8.onrender.com/register',{
          username,
          password,
          email
