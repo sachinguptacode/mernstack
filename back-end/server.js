@@ -2,10 +2,12 @@ const express = require("express");
 const User = require("./Schema/register");
 const cors = require("cors");
 const { connectdb } = require("./db");
+require("dotenv").config();
 connectdb();
 const app = express();
 app.use(cors());
 app.use(express.json());
+const port = process.env.PORT || 4000;
 app.post("/register", async (req, res) => {
   const { email, password, username } = req.body;
   try {
@@ -27,4 +29,6 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.listen(3000);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
